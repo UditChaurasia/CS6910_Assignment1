@@ -7,24 +7,7 @@ from keras.datasets import fashion_mnist
 trainX = trainX/255
 testX = testX/255
 
-#******* To be provided as input *******
-'''layer_input = [128,128,128,128]
-wt_initialisation = 'random'
-activation_function = 'logistic'
-number_of_layers = 0
-epochs = 2
-eta = 0.0012
-optimizer = 'sgd'
-beta = 0.001
-epsilon = 0
-beta1 = 0'''
-#******* To be provided as input *******
-'''test_activation_input = []
-test_activation_output = []
-weight_matrix_of_layers = []
-bias_matrix_of_layers = []
-activation_input = []
-activation_output = []'''
+# Same as that for Question 2 and 3 but here a minor change is we added a confusion matrix and updated it accordingly
 
 
 def layer_init(number_of_layers, layer_input):
@@ -90,22 +73,8 @@ def logistic(val):
 
   temp = np.array(temp)
   return temp
-'''def logistic(val):
-  temp = []
-  for i in range(0,len(val)):
-    if (val[i] > 35):
-      temp.append(1.0)
-    elif (val[i] < -35):
-      temp.append(0.0)
-    else:
-      x = (1/(1 + math.exp(-val[i])))
-      temp.append(x)
-  temp = np.array(temp)
-  return temp'''
 
-# ************************* Space to implement Tanh and Relu ***************************
-# **************************************************************************************
-# **************************************************************************************
+
 
 
 # This function implements the final output function, which is softmax in our case
@@ -362,7 +331,7 @@ def trainD(layer_inputX, wt_initialisationX, activation_functionX, epochsX, etaX
 
       wandb.log({'Confusion Matrix': wandb.plots.HeatMap(true_label,predicted_label,confusion_matrix,show_text = True)})
 
-      
+     
     
   
 
